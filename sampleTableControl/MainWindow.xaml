@@ -1,0 +1,52 @@
+﻿<Window x:Class="sampleTableControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:sampleTableControl"
+        xmlns:controlsLib="clr-namespace:ControlsLib;assembly=ControlsLib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition />
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <controlsLib:TableControl
+            Grid.Row="1"
+            Grid.Column="1"
+            x:Name="tableControl"
+            >            
+        </controlsLib:TableControl>
+
+        <StackPanel
+            Grid.Column="3"
+            Grid.Row="1"
+            >
+            <Label Content="Controls Info" FontSize="20"/>
+            <TextBlock Text="{Binding ElementName=tableControl, Path=ActualHeight}"/>
+
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="4"
+            >
+            <Button x:Name="addRow" Content="Add Row To Table" Click="addRow_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
